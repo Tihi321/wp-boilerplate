@@ -165,6 +165,7 @@ class Main {
     $gallery         = new Utils\Gallery( $this->get_theme_info() );
     $general         = new Theme\General( $this->get_theme_info() );
     $pagination      = new Theme\Pagination( $this->get_theme_info() );
+    $shortcodes      = new Utils\Shortcodes( $this->get_theme_info() );
 
     // Enque styles and scripts.
     $this->loader->add_action( 'wp_enqueue_scripts', $theme, 'enqueue_styles' );
@@ -203,6 +204,9 @@ class Main {
     // Pagination.
     $this->loader->add_filter( 'next_posts_link_attributes', $pagination, 'pagination_link_next_class' );
     $this->loader->add_filter( 'previous_posts_link_attributes', $pagination, 'pagination_link_prev_class' );
+
+    // Shortcodes.
+    $this->loader->add_shortcode( 'blockquote', $shortcodes, 'unicorn_shortcodes' );
 
   }
 

@@ -43,6 +43,7 @@ class Loader {
   public function __construct() {
     $this->actions = array();
     $this->filters = array();
+    $this->shortcodes = array();
   }
 
   /**
@@ -124,6 +125,15 @@ class Loader {
   }
 
   /**
+   * Ads shortcode to Wordpress
+   *
+   * @since 2.0.0
+   */
+  public function add_shortcode($hook, $component, $callback) {
+    $this->shortcodes[] = array( 'hook' => $hook, 'component' => $component, 'callback' => $callback );
+  }
+
+  /**
    * Register the filters and actions with WordPress.
    *
    * @since 2.0.0
@@ -135,6 +145,10 @@ class Loader {
 
     foreach ( $this->actions as $hook ) {
       add_action( $hook['hook'], array( $hook['component'], $hook['callback'] ), $hook['priority'], $hook['accepted_args'] );
+    }
+
+    foreach ( $this->shortcodes as $shortcode ) {
+      add_shortcode( $shortcode['hook'], array( $shortcode['component'], $shortcode['callback'] ));
     }
   }
 }

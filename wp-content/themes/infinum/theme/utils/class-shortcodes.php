@@ -1,19 +1,19 @@
 <?php
 /**
- * The General specific functionality.
+ * The Utils-Shortcodes specific functionality.
  *
  * @since   2.0.0
- * @package Infinum\Theme
+ * @package Infinum\Theme\Utils
  */
 
-namespace Infinum\Theme;
+namespace Infinum\Theme\Utils;
 
 /**
- * Class General
+ * Class Shortcodes
  */
-class General {
+class Shortcodes {
 
-  /**
+    /**
    * Global theme name
    *
    * @var string
@@ -43,13 +43,9 @@ class General {
     $this->theme_version = $theme_info['theme_version'];
   }
 
-  /**
-   * Enable theme support
-   *
-   * @since 2.0.0
-   */
-  public function add_theme_support() {
-    add_theme_support('html5', array('title-tag','comment-list', 'comment-form', 'search-form', 'gallery', 'caption'));
+  function unicorn_shortcodes( $atts, $content = null ) {
+    
+      return '<blockquote class="infinum-quote">' . $content . '</blockquote>';
+      
   }
-
 }

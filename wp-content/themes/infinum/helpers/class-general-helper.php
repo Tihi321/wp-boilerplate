@@ -122,4 +122,73 @@ class General_Helper {
 
     return call_user_func( $shortcode_tags[ $tag ], $atts, $content, $tag );
   }
+
+  
+/*
+    ========================
+        BLOG LOOP CUSTOM FUNCTIONS
+    ========================
+*/
+
+  function unicorn_posted_meta()
+  {
+    return '<span class="posted-date"><a href="'.esc_url(get_permalink()).'">'.get_the_date().'</a></span>';
+  }
+
+  function unicorn_posted_footer($onlyComments = false)
+{
+    $comments_num = get_comments_number();
+    if (comments_open()) {
+        if ($comments_num == 0) {
+            $comments = __('No Comments');
+        } elseif ($comments_num > 1) {
+            $comments = $comments_num.__(' Comments');
+        } else {
+            $comments = __('1 Comment');
+        }
+        $comments = '<a class="comments-link" href="'.get_comments_link().'"><span class="unicorn-comments-icon"></span>'.$comments.'</a>';
+    } else {
+        $comments = __('Comments are closed');
+    }
+
+    if ($onlyComments) {
+        return $comments;
+    }
+
+    return '<div class="post-footer-container"><div class="favs-box"><span class="unicorn-faves-icon"></span>0 faves<div class="comments-box">'.$comments.'</div></div>';
+  }
+
+  function unicorn_get_attachment($num = 1)
+{
+    $output = '';
+    if (has_post_thumbnail() && $num == 1):
+        $output = wp_get_attachment_url(get_post_thumbnail_id(get_the_ID())); else:
+        $attachments = get_posts(array(
+            'post_type' => 'attachment',
+            'posts_per_page' => $num,
+            'post_parent' => get_the_ID(),
+        ));
+    if ($attachments && $num == 1):
+            foreach ($attachments as $attachment):
+                $output = wp_get_attachment_url($attachment->ID);
+    endforeach; elseif ($attachments && $num > 1):
+            $output = $attachments;
+    endif;
+
+    wp_reset_postdata();
+
+    endif;
+
+    return $output;
+}
+
+function unicorn_get_embedded_media($type = array())
+{
+    $content = do_shortcode(apply_filters('the_content', get_the_content()));
+    $embed = get_media_embedded_in_content($content, $type);
+
+    return $embed[0];
+}
+
+
 }

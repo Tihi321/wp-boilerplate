@@ -1,8 +1,8 @@
 <?php
 /**
  * Theme Name: Infinum
- * Description: sdf
- * Author: dfg fdg <dfgdf>
+ * Description: Application theme
+ * Author: Tihomir Selak <tknox.dr@gmail.com>
  * Author URI:
  * Version: 1.0
  * Text Domain: infinum

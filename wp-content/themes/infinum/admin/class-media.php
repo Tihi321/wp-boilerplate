@@ -64,6 +64,8 @@ class Media {
    * @since 2.0.0
    */
   public function add_theme_support() {
+    $formats = array('video');
+    add_theme_support('post-formats', $formats);
     add_theme_support( 'post-thumbnails' );
   }
 
