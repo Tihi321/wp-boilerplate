@@ -12,10 +12,10 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const appPath = `${path.resolve(__dirname)}`;
 
 // Dev Server
-const proxyUrl = 'dev.boilerplate.com'; // local dev url example: dev.wordpress.com
+const proxyUrl = 'http://infinum.dv/'; // local dev url example: dev.wordpress.com
 
 // Theme
-const themeName = 'init_theme_name';
+const themeName = 'infinum';
 const themePath = `/wp-content/themes/${themeName}/skin`;
 const themeFullPath = `${appPath}${themePath}`;
 const themePublicPath = `${themePath}/public/`;
