@@ -117,6 +117,7 @@ class Main {
     $widgets     = new Admin\Widgets( $this->get_theme_info() );
     $menu        = new Menu\Menu( $this->get_theme_info() );
     $media       = new Admin\Media( $this->get_theme_info() );
+    $metaboxes   = new Admin\PostMeta( $this->get_theme_info() );
 
     // Admin.
     $this->loader->add_action( 'login_enqueue_scripts', $admin, 'enqueue_styles' );
@@ -130,6 +131,10 @@ class Main {
     // Editor.
     $this->loader->add_action( 'admin_init', $editor, 'add_editor_styles' );
 
+    // Post Page.
+    $this->loader->add_action( 'add_meta_boxes', $metaboxes, 'unicorn_add_custom_text_meta_box' );
+    $this->loader->add_action( 'save_post', $metaboxes, 'unicorn_custom_text_meta_box_data' );
+
     // Sidebar.
     $this->loader->add_action( 'admin_menu', $admin_menus, 'remove_sub_menus' );
 
@@ -139,6 +144,7 @@ class Main {
 
     // Widgets.
     $this->loader->add_action( 'widgets_init', $widgets, 'register_widget_position' );
+    $this->loader->add_action( 'widgets_init', $widgets, 'register_newsletter_widget' );
 
     // Menu.
     $this->loader->add_action( 'after_setup_theme', $menu, 'register_menu_positions' );

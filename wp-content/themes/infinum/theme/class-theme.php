@@ -70,7 +70,7 @@ class Theme {
     $main_style = '/skin/public/styles/application.css';
     wp_register_style( $this->theme_name . '-style', get_template_directory_uri() . $main_style, array(), $this->general_helper->get_assets_version( $main_style ) );
     wp_enqueue_style( $this->theme_name . '-style' );
-
+    
   }
 
   /**

@@ -32,6 +32,15 @@ class Widgets {
   protected $theme_version;
 
   /**
+   * Newsletter widget
+   *
+   * @var string
+   *
+   * @since 2.0.0
+   */
+  private $newsletter;
+
+  /**
    * Initialize class
    *
    * @param array $theme_info Load global theme info.
@@ -60,6 +69,11 @@ class Widgets {
           'after_title'   => '</h2>',
       )
     );
+  }
+
+  // register newletter widget
+  public function register_newsletter_widget() {
+      register_widget( 'Infinum\Admin\NewsletterWidget' );
   }
 
 }

@@ -1,0 +1,55 @@
+[class^='icon-'], [class*=' icon-'] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-ic-apple::before {
+  content: "\e900";
+  color: #fff;
+}
+.icon-ic-comment::before {
+  content: "\e901";
+  color: #999;
+}
+.icon-ic-facebook::before {
+  content: "\e902";
+  color: #dd4ba3;
+}
+.icon-ic-heart::before {
+  content: "\e903";
+  color: #999;
+}
+.icon-ic-instagram::before {
+  content: "\e904";
+  color: #dd4ba3;
+}
+.icon-ic-play::before {
+  content: "\e905";
+  color: #fff;
+}
+.icon-ic-search::before {
+  content: "\e906";
+  color: #555;
+}
+.icon-ic-twitter::before {
+  content: "\e907";
+  color: #dd4ba3;
+}
+.icon-ic-unicorn::before {
+  content: "\e908";
+  color: #fff;
+}
+.icon-ic-writer::before {
+  content: "\e909";
+  color: #fff;
+}

@@ -18,7 +18,13 @@ $image  = $images->get_post_image( 'full_width' );
     <h1 class="single__title">
       <?php the_title(); ?>
     </h1>
-    <div class="single__author"><span class="author-icon"></span>
+    <?php $custom_text = get_post_meta( get_the_ID(),'_unicorn_custom_text_value_key',true); ?>
+    <?php if($custom_text): ?>
+    <h3 class="single__custom_text">
+      <?php echo $custom_text; ?>
+    </h3>
+    <?php endif ?>
+    <div class="single__author"><i class="icon-ic-writer"></i>
       <a class="single__author" href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>"><?php the_author(); ?></a>
       <a class="back__blog" href="<?php echo get_post_type_archive_link( 'post' ); ?>">Back to Blog</a>
     </div>
@@ -28,6 +34,7 @@ $image  = $images->get_post_image( 'full_width' );
     <?php the_content(); ?>
   </div>
   <?php require locate_template( 'template-parts/parts/google-rich-snippets.php' ); ?>
+  <div class="header-tags-container"><?php echo (has_tag()) ? get_the_tag_list('<div class="tags-list">', ' ', '</div>') : '<div class="tags-list"><span>0 tags<span></div>'?></div>
   <?php $next_post = get_next_post(); ?>
   <?php if (!empty( $next_post )): ?>
     <div class="next-post">
