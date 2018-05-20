@@ -35,9 +35,15 @@
 @import 'components/forms/radio';
 @import 'components/forms/input';
 
+// Global
+@import 'components/global/index';
+
 // Header
 @import 'components/header/wp-admin-bar';
 @import 'components/header/header';
+
+// Footer
+@import 'components/footer/footer';
 
 //Article
 // @import 'components/article/article-list';
@@ -46,7 +52,7 @@
 
 //Listing
 // @import 'components/listing/listing-list';
-// @import 'components/listing/listing-grid';
+@import 'components/listing/listing-grid';
 
 //Sections
 // @import 'components/sections/';
@@ -58,4 +64,4 @@
 @import 'components/single';
 
 // Pages
-// @import 'components/pages/';
+@import 'components/pages/search-page';

@@ -6,26 +6,32 @@
  */
 
 use Infinum\Theme\Utils as Utils;
+use Infinum\Helpers as General_Helpers;
 
+$general_helper = new General_Helpers\General_Helper();
 $images = new Utils\Images();
 $image  = $images->get_post_image( 'full_width' );
 ?>
 
 <!-- Single Content Section -->
 <section class="single" id="<?php echo esc_attr( $post->ID ); ?>">
-  <header>
+  <header class="single__header">
   <div class="single__image" data-normal="<?php echo esc_url( $image['image'] ); ?>">
-    <h1 class="single__title">
-      <?php the_title(); ?>
-    </h1>
-    <?php $custom_text = get_post_meta( get_the_ID(),'_unicorn_custom_text_value_key',true); ?>
-    <?php if($custom_text): ?>
-    <h3 class="single__custom_text">
-      <?php echo $custom_text; ?>
-    </h3>
-    <?php endif ?>
-    <div class="single__author"><i class="icon-ic-writer"></i>
-      <a class="single__author" href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>"><?php the_author(); ?></a>
+    <div class="single__image-child">
+      <div class="single__title-wrapper">
+        <h1 class="single__title">
+          <?php the_title(); ?>
+        </h1>
+        <?php $custom_text = get_post_meta( get_the_ID(),'_unicorn_custom_text_value_key',true); ?>
+        <?php if($custom_text): ?>
+        <h3 class="single__custom_text">
+          <?php echo $custom_text; ?>
+        </h3>
+        <?php endif ?>
+        <div class="single__author"><i class="icon-ic-writer"></i>
+          <a class="single__author" href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>"><?php the_author(); ?></a>
+        </div>
+      </div>
       <a class="back__blog" href="<?php echo get_post_type_archive_link( 'post' ); ?>">Back to Blog</a>
     </div>
   </div>
@@ -44,8 +50,9 @@ $image  = $images->get_post_image( 'full_width' );
     <?php $post_thumbnail = get_the_post_thumbnail( $next_post->ID, 'next-post'); ?>
     <a href="<?php the_permalink( $next_post->ID ); ?>"><?php echo $post_thumbnail; ?></a>
     <div class="nex-post__content">
+    <?php $custom_text = $general_helper->limit_excerp(get_the_excerpt($next_post->ID), 150) ?>
       <h2 class="next-post__content-title"><?php echo get_the_title($next_post->ID); ?></h2>
-      <p class="next-post__content-excerp"><?php echo get_the_excerpt($next_post->ID) ?></p>
+      <p class="next-post__content-excerp"><?php echo $custom_text ?></p>
       <div class="read-more-container">
         <a href="<?php the_permalink( $next_post->ID ); ?>" class="read-more"><?php _e( 'Read More' ); ?></a>
       </div>

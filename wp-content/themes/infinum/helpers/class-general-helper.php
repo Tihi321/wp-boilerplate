@@ -157,7 +157,7 @@ function unicorn_posted_meta()
         } else {
             $comments = __('1 Comment');
         }
-        $comments = '<a class="comments-link" href="'.get_comments_link().'"><span class="unicorn-comments-icon"></span>'.$comments.'</a>';
+        $comments = '<a class="comments-link" href="'.get_comments_link().'"><i class="icon-ic-comment"></i><span>'.$comments.'</span></a>';
     } else {
         $comments = __('Comments are closed');
     }
@@ -166,7 +166,7 @@ function unicorn_posted_meta()
         return $comments;
     }
 
-    return '<div class="post-footer-container"><div class="favs-box"><span class="unicorn-faves-icon"></span>0 faves<div class="comments-box">'.$comments.'</div></div>';
+    return '<div class="post-footer-container"><div class="favs-box"><i class="icon-ic-heart"></i><span>0 faves</span></div>'.$comments.'</div>';
   }
 
   /*
@@ -211,5 +211,26 @@ function unicorn_get_embedded_media($type = array())
     return $embed[0];
 }
 
+  /*
+    ========================
+        Get any embeded media
+    ========================
+*/
+  function unicorn_get_custom_text()
+  {
+      $custom_text = get_post_meta( get_the_ID(),'_unicorn_custom_text_value_key',true);
+
+      return $custom_text;
+  }
+
+  /* Limit excerp */
+
+  function limit_excerp($excerp, $max=230){
+      if (strlen( $excerp ) > $max) {
+          return substr( $excerp, 0, $max ). " &hellip;";
+      } else {
+          return $excerp;
+      }
+  }
 
 }

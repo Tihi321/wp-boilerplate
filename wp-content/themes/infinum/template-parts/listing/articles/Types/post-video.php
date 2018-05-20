@@ -13,9 +13,19 @@ $image  = $images->get_post_image( 'grid' );
 ?>
 
     <?php if( $general_helper->unicorn_get_embedded_media( array('video','iframe')) ): ?>
-    <div class="embed-responsive embed-responsive-16by9">
+    <div class="embed-responsive">
 			<?php echo $general_helper->unicorn_get_embedded_media( array('video','iframe') ); ?>
 		</div>
     <?php else: ?>
-      <a class="article-grid__image" href="<?php the_permalink(); ?>" style="background-image:url( <?php echo esc_url( $image['image'] ); ?> )"></a>
+      <div class="article-grid__image" >
+        <a href="<?php the_permalink(); ?>">
+        <img src="<?php echo esc_url( $image['image'] ); ?>" />
+      </a>
+        <?php $custom_text = $general_helper->unicorn_get_custom_text() ?>
+        <?php if($custom_text): ?>
+          <h3 class="grid__custom_text_image">
+            <?php echo $custom_text; ?>
+          </h3>
+        <?php endif ?>
+      </div>
 		<?php endif; ?>

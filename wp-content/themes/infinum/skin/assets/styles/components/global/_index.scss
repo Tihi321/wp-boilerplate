@@ -1,0 +1,18 @@
+.header-tags-container {
+  font-size: 0.8em;
+  margin: 1em 0;
+  a {
+    background-color: $base-silver-color;
+    padding: 3px 6px;
+    margin-right: 0.5em;
+    margin-top: 0.5em;
+    display: inline-block;
+    transition: all 200ms ease;
+    color: $base-abbey-color;
+  }
+
+  &:hover {
+    transition: all 200ms ease;
+    color: $base-black-color;
+  }
+}

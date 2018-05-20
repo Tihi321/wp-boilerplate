@@ -1,6 +1,71 @@
-
 .footer {
   &__container {
     @include site-container();
+  }
+  margin-top: 4em;
+  .footer__newsletter {
+    max-width: 650px;
+    margin: 0 auto;
+    .footer__newsletter-title {
+      font-size: 2.8em;
+      font-weight: 100;
+      text-align: center;
+    }
+    .widget_newsletter_widget {
+      #mc_embed_signup_scroll {
+        display: flex;
+        .email {
+          flex-grow: 1;
+          padding: 5px;
+        }
+        .button {
+          cursor: pointer;
+          transition: all 200ms ease;
+          background-color: $base-rouge-color;
+          color: #fff;
+          padding: 1.4em 2.9em;
+          border: none;
+          border-radius: 5px;
+          margin-left: 0.8em;
+          text-transform: uppercase;
+          font-size: 0.8em;
+          &:hover {
+            transition: all 200ms ease;
+            background-color: $base-rouge-color-dark;
+          }
+        }
+      }
+    }
+  }
+  .footer__bottom {
+    background-color: $base-silver-color;
+    margin-top: 4em;
+    .footer__bottom-container {
+      line-height: 1.5;
+      max-width: $base-content-full-width;
+      padding: 2em $base-content-padding;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      .footer-logo {
+        display: flex;
+        align-items: baseline;
+        flex-direction: column;
+        .footer-logo-link {
+          margin-bottom: 0.4em;
+        }
+      }
+      .footer-social {
+        padding: 0;
+        text-align: right;
+        li {
+          list-style: none;
+          i {
+            margin-left: 0.4em;
+          }
+        }
+      }
+    }
   }
 }

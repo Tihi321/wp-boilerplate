@@ -22,10 +22,9 @@ if ( have_posts() ) { ?>
 <?php } ?>
 
 <!-- Listing Section -->
-
-<?php
-if ( have_posts() ) {
-  while ( have_posts() ) {
+<?php if ( have_posts() ) { ?>
+<div class="posts-list">
+<?php while ( have_posts() ) {
     the_post();
     get_template_part( 'template-parts/listing/articles/grid' );
   };
@@ -34,11 +33,9 @@ if ( have_posts() ) {
     array(
         'screen_reader_text' => ' ',
     )
-  );
-
-} else {
+  ); ?>
+</div>
+<?php } else {
   get_template_part( 'template-parts/listing/articles/empty' );
-
-};
-
-get_footer();
+} ?>
+<?php get_footer();

@@ -44,8 +44,17 @@ class Shortcodes {
   }
 
   function unicorn_shortcodes( $atts, $content = null ) {
+        $atributes = shortcode_atts( array(
+        'position' => ''
+        ), $atts );
+
+        $class = '';
+
+        if($atributes['position'] != ""){
+          $class = ' ' . $atributes['position'];
+        }
     
-      return '<blockquote class="infinum-quote">' . $content . '</blockquote>';
+      return '<blockquote class="infinum-quote' . $class . '">' . $content . '</blockquote>';
       
   }
 }

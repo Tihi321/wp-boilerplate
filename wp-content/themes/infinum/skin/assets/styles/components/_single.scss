@@ -1,6 +1,107 @@
 // .single {
-.single__content{
-  max-width: 1100px;
-  margin: 0 auto;
+.single-post {
+  .main-content {
+    .single__header {
+      a {
+        color: #fff;
+        &:hover {
+          color: rgba(255, 255, 255, 0.5);
+        }
+      }
+      .single__image {
+        background-repeat: no-repeat;
+        background-size: cover;
+        .single__image-child {
+          background-color: rgba(0, 10, 50, 0.3);
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          padding: 1em;
+          .single__title-wrapper {
+            color: #fff;
+            text-align: center;
+            margin: 6em 0;
+            max-width: 600px;
+            .single__title {
+              font-weight: 400;
+              font-size: 2.6em;
+            }
+            .single__custom_text {
+              font-size: 1.5em;
+              text-transform: uppercase;
+              font-weight: 400;
+            }
+            .single__author {
+              padding-left: 0.5em;
+            }
+          }
+        }
+      }
+    }
+    .single {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      header {
+        width: 100%;
+      }
+      .single__content {
+        margin-top: 2em;
+        max-width: 700px;
+        padding: 0 $base-content-padding;
+        img,
+        .iframe {
+          margin: 6em 0;
+          transform: scale(1.5);
+        }
+        .infinum-quote {
+          font-size: 1.6em;
+          color: $base-rouge-color;
+          max-width: 400px;
+          text-align: center;
+          margin: 2em;
+          &.left {
+            float: left;
+            margin-left: -8em;
+          }
+          &.right {
+            float: right;
+            margin-right: -8em;
+          }
+        }
+      }
+    }
+    .header-tags-container,
+    .next-post {
+      margin: 2em 0;
+      max-width: 700px;
+      padding: 0 $base-content-padding;
+      width: 100%;
+    }
+    .next-post {
+      .next-post__title {
+        text-align: center;
+        color: $base-rouge-color;
+        margin-bottom: 2em;
+      }
+      .next-post__listing {
+        display: flex;
+        .nex-post__content {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          margin: 0 3em;
+          .next-post__content-excerp {
+            line-height: 1.5;
+          }
+          h2,
+          p {
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
 }
 // }

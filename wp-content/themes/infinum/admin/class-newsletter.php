@@ -45,10 +45,10 @@ class NewsletterWidget extends \WP_Widget {
       <form action="<?php echo $link ?>" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate="">
         <div id="mc_embed_signup_scroll">
           <label for="mce-EMAIL"></label>
-          <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Enter your email address" required="">
+          <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Enter your e-mail address" required="">
           <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
           <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_b3b6b30bec87d2139f3fa279e_41885e5915" tabindex="-1" value=""></div>
-          <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+          <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
         </div>
       </form>
     </div>

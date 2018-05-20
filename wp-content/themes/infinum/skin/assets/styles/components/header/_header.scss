@@ -1,3 +1,101 @@
-// .header {
-
-// }
+.header {
+  margin: 0 auto;
+  max-width: $base-content-full-width;
+  padding: $base-content-padding;
+  padding-bottom: 0;
+  .header__top {
+    display: flex;
+    justify-content: space-between;
+    .header__logo-link {
+      display: flex;
+      align-items: center;
+    }
+    .main-navigation {
+      display: flex;
+      li {
+        list-style: none;
+        margin: 0 12.5px;
+        a {
+          transition: all 200ms ease;
+          display: inline-block;
+          padding: 18px 30px;
+          color: $base-abbey-color;
+          &:hover {
+            transition: all 200ms ease;
+            color: $base-black-color;
+          }
+        }
+      }
+      .main-navigation__item--ios,
+      .main-navigation__item--unicorn {
+        a {
+          border-radius: 5px;
+          padding-left: 60px;
+          color: #fff;
+          &:hover {
+            color: #fff;
+          }
+        }
+      }
+      .main-navigation__item--ios {
+        a {
+          background-color: $base-rouge-color;
+          &:hover {
+            background-color: $base-rouge-color-dark;
+          }
+        }
+      }
+      .main-navigation__item--unicorn {
+        a {
+          background-color: $base-chateau-color;
+          &:hover {
+            background-color: $base-dark-color;
+          }
+        }
+      }
+      .main-navigation__item--ios::before,
+      .main-navigation__item--unicorn::before {
+        pointer-events: none;
+        color: #fff;
+        font-family: 'infinum' !important;
+        speak: none;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        position: relative;
+        left: 50px;
+      }
+      .main-navigation__item--ios::before {
+        content: '\e900';
+      }
+      .main-navigation__item--unicorn::before {
+        content: '\e908';
+      }
+    }
+  }
+  .header__search_title {
+    .header__main-title {
+      color: $base-rouge-color;
+      font-weight: 100;
+      text-align: center;
+      font-size: 2.8em;
+    }
+    .header__search-form {
+      display: flex;
+      align-items: center;
+      margin: 0 auto;
+      max-width: 220px;
+      .header__search-form-input {
+        border: none;
+        padding: 0;
+        margin: 0 10px;
+        font-size: 1.1em;
+        &:focus {
+          box-shadow: none;
+        }
+      }
+    }
+  }
+}

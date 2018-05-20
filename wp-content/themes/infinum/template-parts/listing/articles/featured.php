@@ -9,11 +9,19 @@ use Infinum\Theme\Utils as Utils;
 use Infinum\Helpers as General_Helpers;
 $general_helper = new General_Helpers\General_Helper();
 $images = new Utils\Images();
-$image  = $images->get_post_image( 'grid' );
+$image  = $images->get_post_image( 'featured-image' );
 ?>
 <article class="article-grid">
   <div class="article-grid__container">
-  <?php get_template_part( 'template-parts/listing/articles/Types/post', get_post_format() ); ?>
+      <a class="article-grid__image" href="<?php the_permalink(); ?>">
+    <img src="<?php echo esc_url( $image['image'] ); ?>" />
+    <?php $custom_text = get_post_meta( get_the_ID(),'_unicorn_custom_text_value_key',true); ?>
+      <?php if($custom_text): ?>
+      <h3 class="grid__custom_text_image">
+        <?php echo $custom_text; ?>
+      </h3>
+      <?php endif ?>
+    </a>
     <div class="article-grid__content">
       <header>
         <div class="entry-meta">
@@ -27,11 +35,10 @@ $image  = $images->get_post_image( 'grid' );
         <div class="header-tags-container"><?php echo (has_tag()) ? get_the_tag_list('<div class="tags-list">', ' ', '</div>') : '<div class="tags-list"><span>0 tags<span></div>'?></div>
       </header>
       <div class="article-grid__excerpt">
-        <?php $excerp = $general_helper->limit_excerp(get_the_excerpt(), 200); ?>
+        <?php $excerp = $general_helper->limit_excerp(get_the_excerpt(), 300); ?>
         <?php echo $excerp ?>
         <a href="<?php the_permalink(); ?>" class="read-more"><?php _e( 'Read More' ); ?></a>
       </div>
-
       <footer class="entry-footer">
         <?php echo $general_helper->unicorn_posted_footer(); ?>
       </footer>
