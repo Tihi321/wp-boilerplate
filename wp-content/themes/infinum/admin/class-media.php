@@ -77,6 +77,8 @@ class Media {
   public function add_custom_image_sizes() {
     add_image_size( 'full_width', 9999, 9999, false );
     add_image_size( 'listing', 570, 320, true );
+    add_image_size( 'grid', 360, 290 , true );
+    add_image_size( 'next-post', 185, 155 , true );
   }
 
   /**

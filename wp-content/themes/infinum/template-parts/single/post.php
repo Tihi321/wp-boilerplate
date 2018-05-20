@@ -41,7 +41,7 @@ $image  = $images->get_post_image( 'full_width' );
     <h1 class="next-post__title">More magic</h1>
 
     <div class="next-post__listing">
-    <?php $post_thumbnail = get_the_post_thumbnail( $next_post->ID, 'listing'); ?>
+    <?php $post_thumbnail = get_the_post_thumbnail( $next_post->ID, 'next-post'); ?>
     <a href="<?php the_permalink( $next_post->ID ); ?>"><?php echo $post_thumbnail; ?></a>
     <div class="nex-post__content">
       <h2 class="next-post__content-title"><?php echo get_the_title($next_post->ID); ?></h2>

@@ -130,11 +130,22 @@ class General_Helper {
     ========================
 */
 
-  function unicorn_posted_meta()
-  {
-    return '<span class="posted-date"><a href="'.esc_url(get_permalink()).'">'.get_the_date().'</a></span>';
-  }
+/*
+    ========================
+        Get meta tags
+    ========================
+*/
 
+function unicorn_posted_meta()
+{
+  return '<span class="posted-date"><a href="'.esc_url(get_permalink()).'">'.get_the_date().'</a></span>';
+}
+
+/*
+    ========================
+        Get comments
+    ========================
+*/
   function unicorn_posted_footer($onlyComments = false)
 {
     $comments_num = get_comments_number();
@@ -158,6 +169,11 @@ class General_Helper {
     return '<div class="post-footer-container"><div class="favs-box"><span class="unicorn-faves-icon"></span>0 faves<div class="comments-box">'.$comments.'</div></div>';
   }
 
+  /*
+    ========================
+        Get thumbnail or first image attachement inside the post
+    ========================
+*/
   function unicorn_get_attachment($num = 1)
 {
     $output = '';
@@ -182,6 +198,11 @@ class General_Helper {
     return $output;
 }
 
+  /*
+    ========================
+        Get any embeded media
+    ========================
+*/
 function unicorn_get_embedded_media($type = array())
 {
     $content = do_shortcode(apply_filters('the_content', get_the_content()));
